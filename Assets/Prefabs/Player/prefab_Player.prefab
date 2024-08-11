@@ -219,4 +219,6 @@ MonoBehaviour:
   _rb: {fileID: 4111165125864551687}
   _collider: {fileID: 4210286198611441229}
   _playerInputs: {fileID: 3552204368604910375}
+  _magicProjectile: {fileID: 1223257131594507830, guid: 4d1bd6df545c90d4da6afd82fc4a41ed, type: 3}
+  _equippedMagic: {fileID: 11400000, guid: 4ea7ad65144c60943b79da2ee984267a, type: 2}
   _speed: 5
