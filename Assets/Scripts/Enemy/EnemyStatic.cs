@@ -1,3 +1,4 @@
+// EnemyStatic.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,13 @@ public class EnemyStatic : EnemyController
     private GameObject _player;
     private ParticleSystem _particleSystem;
     public float attackInterval = 2.0f;
-    private NavMeshSurface _navMeshSurface;
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _particleSystem = GetComponentInChildren<ParticleSystem>();
-        _navMeshSurface = FindObjectOfType<NavMeshSurface>();
 
-        InitializeAgent(); // Método da classe base
+        InitializeAgent();
 
         StartCoroutine(AttackRoutine());
     }
@@ -52,10 +51,10 @@ public class EnemyStatic : EnemyController
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
-        { D
+        if (collision.gameObject.CompareTag("Player"))
+        {
             _particleSystem.Stop();
         }
     }
@@ -69,10 +68,9 @@ public class EnemyStatic : EnemyController
 
             for (int i = 0; i < numParticlesAlive; i++)
             {
-                // Verifica se a partícula está fora do NavMesh
                 if (!IsWithinNavMesh(particles[i].position))
                 {
-                    particles[i].remainingLifetime = 0; // Destroi a partícula
+                    particles[i].remainingLifetime = 0;
                 }
             }
 
