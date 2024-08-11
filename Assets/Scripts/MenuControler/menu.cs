@@ -8,4 +8,8 @@ public class menu : MonoBehaviour
     public void jogar(){
         SceneManager.LoadScene("TestScene");
     }
+
+    public void exit(){
+        Application.Quit();
+    }
 }
