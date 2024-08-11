@@ -6,6 +6,7 @@ public class EnemyAnimEvents : MonoBehaviour
 {
     public void DestroyGameObject()
     {
-        Destroy(gameObject);
+        GameObject parent = gameObject.GetComponentInParent<EnemyController>().gameObject;
+        Destroy(parent);
     }
 }

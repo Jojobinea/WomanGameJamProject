@@ -22,7 +22,7 @@ public class EnemyStatic : EnemyController
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         projectile = transform.Find("projetil").gameObject;
-        _spriteTransform.parent = null;
+        //_spriteTransform.parent = null;
 
 
         if (projectile == null)
@@ -141,7 +141,6 @@ public class EnemyStatic : EnemyController
         if (enemyHealth <= 0)
         {
             animator.SetBool("isDead", true);
-            enemyAnimEvents.DestroyGameObject();
         }
     }
 
