@@ -13,9 +13,11 @@ public class IceShard : Projectile
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Wall"))
+        if(other.gameObject.CompareTag("Enemies") || other.gameObject.CompareTag("Wall"))
         {
-            Destroy(gameObject);
+            GetComponent<Collider2D>().enabled = false;
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
+            Destroy(gameObject, 1f);
         }
     }
 }

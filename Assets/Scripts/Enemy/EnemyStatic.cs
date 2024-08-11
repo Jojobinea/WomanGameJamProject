@@ -7,10 +7,6 @@ public class EnemyStatic : EnemyController
     [SerializeField] private float attackInterval = 2.0f;
     [SerializeField] private float projectileSpeed = 5.0f;
 
-    [SerializeField] private int enemyHealth = 1;
-
-
-    [SerializeField] private Animator animator;
     [SerializeField] private Transform _spriteTransform;
 
     private GameObject projectile;
@@ -22,7 +18,6 @@ public class EnemyStatic : EnemyController
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         projectile = transform.Find("projetil").gameObject;
-        //_spriteTransform.parent = null;
 
 
         if (projectile == null)
@@ -49,7 +44,6 @@ public class EnemyStatic : EnemyController
 
     private void Update()
     {
-
 
         if (_player != null)
         {
@@ -116,8 +110,6 @@ public class EnemyStatic : EnemyController
         }
     }
 
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("ProjetilPlayer"))
@@ -130,18 +122,6 @@ public class EnemyStatic : EnemyController
         {
             Debug.Log("Colidiu com a parede");
             ResetProjectile();
-        }
-    }
-
-
-    private void TakeDamage(int damage)
-    {
-        enemyHealth -= damage;
-        Debug.Log("Vida restante do inimigo: " + enemyHealth);
-
-        if (enemyHealth <= 0)
-        {
-            animator.SetBool("isDead", true);
         }
     }
 

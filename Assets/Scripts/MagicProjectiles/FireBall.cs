@@ -8,7 +8,7 @@ public class FireBall : Projectile
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Wall"))
+        if(other.gameObject.CompareTag("Enemies") || other.gameObject.CompareTag("Wall"))
         {
             FireBallExplosion();
         }
@@ -16,8 +16,9 @@ public class FireBall : Projectile
 
     private void FireBallExplosion()
     {
-        gameObject.SetActive(false);
+        GetComponent<Collider2D>().enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         Instantiate(_fireballExplosion, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 }
