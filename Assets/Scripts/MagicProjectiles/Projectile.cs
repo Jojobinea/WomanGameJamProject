@@ -4,41 +4,28 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _sprite;
-    [SerializeField] private Rigidbody2D _rb;
-    private MagicProjectileDetail _magicProjectileStruct;
+    [Header("References")]
+    [SerializeField] protected SpriteRenderer _sprite;
+    [SerializeField] protected Rigidbody2D _rb;
 
-    private void Start()
+    [Header("Variables")]
+    [SerializeField] protected int _baseDamage;
+    [SerializeField] protected int _currentDamage;
+    [SerializeField] protected float _speed;
+    public float coolDownTimer;
+
+
+    protected virtual void Start()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 direction = (mousePos - _rb.position).normalized;
 
-        _rb.velocity = direction * _magicProjectileStruct.speed;
+        _rb.velocity = direction * _speed;
     }
 
-    public void SetProjectile(MagicProjectileDetail projectile)
+    public float GetProjectileSpeed()
     {
-        _magicProjectileStruct = projectile;
-        _sprite.color = _magicProjectileStruct.spriteColor;
-    }
-
-    public MagicProjectileDetail GetProjectileStats()
-    {
-        return _magicProjectileStruct;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("Enemies"))
-        {
-            Debug.Log("Hit enemy");
-            Destroy(gameObject);
-        }
-        else if(other.gameObject.CompareTag("Wall"))
-        {
-            Debug.Log("Hit wall");
-            Destroy(gameObject);
-        }
+        return _speed;
     }
 }
