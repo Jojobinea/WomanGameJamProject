@@ -8691,7 +8691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3825034787776326556, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.6330137
+      value: -7.633014
       objectReference: {fileID: 0}
     - target: {fileID: 3825034787776326556, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8703,15 +8703,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3825034787776326556, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3825034787776326556, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3825034787776326556, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3825034787776326556, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8728,6 +8728,10 @@ PrefabInstance:
     - target: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
       propertyPath: m_Name
       value: prefab_Enemy_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8879,6 +8883,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375477011239207632, guid: 0330a79eb6e9e05499150cf11c42904b, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6861623257390744851, guid: 0330a79eb6e9e05499150cf11c42904b, type: 3}
       propertyPath: m_Name
       value: prefab_Player
@@ -8995,6 +9003,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1593077922}
   - {fileID: 2871999201875569019}
-  - {fileID: 1354901336}
   - {fileID: 3712375773893425181}
+  - {fileID: 1354901336}
   - {fileID: 1078054572}
