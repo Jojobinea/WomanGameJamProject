@@ -87,20 +87,21 @@ public class EnemyStatic : EnemyController
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("ProjetilPlayer"))
         {
             Debug.Log("Colidiu com o jogador");
             TakeDamage(1);  // Reduz a vida do inimigo em 1
-            ResetProjectile();  // Reseta o projétil para reutilização
+            ResetProjectile();
         }
-        else if (collision.gameObject.CompareTag("Wall"))
+        else if (other.gameObject.CompareTag("Wall"))
         {
             Debug.Log("Colidiu com a parede");
-            ResetProjectile();  // Reseta o projétil para reutilização
+            ResetProjectile();
         }
     }
+
 
     private void TakeDamage(int damage)
     {
