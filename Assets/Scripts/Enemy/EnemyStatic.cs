@@ -1,37 +1,58 @@
-// EnemyStatic.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyStatic : EnemyController
 {
     private GameObject _player;
-    private ParticleSystem _particleSystem;
     public float attackInterval = 2.0f;
+    public float projectileSpeed = 5.0f;
+    private GameObject projectile;
+
+    [SerializeField] private Animator animator; // GameObject que representa o projétil
+
+    // Adiciona uma variável para armazenar a vida do inimigo
+    public int enemyHealth = 10;  // Vida inicial do inimigo
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        _particleSystem = GetComponentInChildren<ParticleSystem>();
 
-        InitializeAgent();
+        // Buscar o projétil diretamente no prefab principal
+        projectile = transform.Find("projetil").gameObject;
+
+        // Certificar-se de que o projétil está desativado até ser lançado
+        if (projectile != null)
+        {
+            projectile.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Projétil 'Circle' não encontrado diretamente no prefab");
+        }
+
+        animator = GetComponent<Animator>();
 
         StartCoroutine(AttackRoutine());
     }
 
     private void Update()
     {
-        LookAtPlayer();
-    }
 
-    private void LookAtPlayer()
-    {
+
         if (_player != null)
         {
-            Vector3 direction = (_player.transform.position - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(direction);
+            // Calcula a direção do jogador a partir da posição do inimigo
+            Vector3 direction = _player.transform.position - transform.position;
+
+            // Calcula o ângulo necessário para olhar para o jogador
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            // Ajusta a rotação do inimigo para olhar para o jogador
+            // Subtrai 90 graus se o sprite do inimigo estiver orientado verticalmente
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         }
+
     }
 
     private IEnumerator AttackRoutine()
@@ -39,15 +60,27 @@ public class EnemyStatic : EnemyController
         while (true)
         {
             yield return new WaitForSeconds(attackInterval);
-            LaunchParticles();
+            LaunchProjectile();
         }
     }
 
-    private void LaunchParticles()
+    private void LaunchProjectile()
     {
-        if (_particleSystem != null)
+        if (projectile != null && _player != null)
         {
-            _particleSystem.Play();
+            // Ativar o projétil e posicioná-lo no local do inimigo
+            projectile.SetActive(true);
+            projectile.transform.position = transform.position;
+
+            // Calcular a direção para o jogador
+            Vector3 direction = (_player.transform.position - transform.position).normalized;
+
+            // Adicionar força ao projétil para que ele se mova na direção do jogador
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = direction * projectileSpeed;
+            }
         }
     }
 
@@ -55,32 +88,37 @@ public class EnemyStatic : EnemyController
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _particleSystem.Stop();
+            Debug.Log("Colidiu com o jogador");
+            TakeDamage(1);  // Reduz a vida do inimigo em 1
+            ResetProjectile();  // Reseta o projétil para reutilização
         }
-    }
-
-    private void LateUpdate()
-    {
-        if (_particleSystem != null)
+        else if (collision.gameObject.CompareTag("Wall"))
         {
-            var particles = new ParticleSystem.Particle[_particleSystem.main.maxParticles];
-            int numParticlesAlive = _particleSystem.GetParticles(particles);
-
-            for (int i = 0; i < numParticlesAlive; i++)
-            {
-                if (!IsWithinNavMesh(particles[i].position))
-                {
-                    particles[i].remainingLifetime = 0;
-                }
-            }
-
-            _particleSystem.SetParticles(particles, numParticlesAlive);
+            Debug.Log("Colidiu com a parede");
+            ResetProjectile();  // Reseta o projétil para reutilização
         }
     }
 
-    private bool IsWithinNavMesh(Vector3 position)
+    private void TakeDamage(int damage)
     {
-        NavMeshHit hit;
-        return NavMesh.SamplePosition(position, out hit, 1.0f, NavMesh.AllAreas);
+        enemyHealth -= damage;
+        Debug.Log("Vida restante do inimigo: " + enemyHealth);
+
+        if (enemyHealth <= 0)
+        {
+            animator.SetBool("isDead", true);
+            Destroy(gameObject, 1f);  // Destrói o inimigo quando a vida chegar a zero
+        }
+    }
+
+    private void ResetProjectile()
+    {
+        // Para o movimento do projétil e desativa-o para reutilização
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        projectile.SetActive(false);
     }
 }
