@@ -64,6 +64,7 @@ public class EnemyStatic : EnemyController
             transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         }
 
+        _spriteTransform.transform.rotation = Quaternion.Euler (0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
     }
 
     private IEnumerator AttackRoutine()
