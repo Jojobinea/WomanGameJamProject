@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class EnemyStatic : EnemyController
 {
-    public float attackInterval = 2.0f;
-    public float projectileSpeed = 5.0f;
-    private GameObject projectile;
+    [SerializeField] private float attackInterval = 2.0f;
+    [SerializeField] private float projectileSpeed = 5.0f;
 
-    [SerializeField] private Animator animator; // GameObject que representa o projétil
+    [SerializeField] private int enemyHealth = 1;
+
+
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform _spriteTransform;
 
-    // Adiciona uma variável para armazenar a vida do inimigo
-    public int enemyHealth = 10;  // Vida inicial do inimigo
+    private GameObject projectile;
+
+    private EnemyAnimEvents enemyAnimEvents;
+
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         projectile = transform.Find("projetil").gameObject;
         _spriteTransform.parent = null;
+
 
         if (projectile == null)
         {
@@ -35,6 +40,8 @@ public class EnemyStatic : EnemyController
             Debug.LogError("Animator não foi atribuído ao prefab_Enemy_Shadow");
             this.enabled = false; // Desativa o script para prevenir erros
         }
+
+        enemyAnimEvents = GetComponent<EnemyAnimEvents>();
 
         StartCoroutine(AttackRoutine());
     }
@@ -72,21 +79,43 @@ public class EnemyStatic : EnemyController
     {
         if (projectile != null && _player != null)
         {
-            // Ativar o projétil e posicioná-lo no local do inimigo
             projectile.SetActive(true);
             projectile.transform.position = transform.position;
-
-            // Calcular a direção para o jogador
-            Vector3 direction = (_player.transform.position - transform.position).normalized;
-
-            // Adicionar força ao projétil para que ele se mova na direção do jogador
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = direction * projectileSpeed;
-            }
+            StartCoroutine(FollowPlayer(projectile, 1f)); // 2 segundos para o tempo de vida do projétil
         }
     }
+
+
+
+    private IEnumerator FollowPlayer(GameObject proj, float lifetime)
+    {
+        float elapsedTime = 0;  // Tempo decorrido desde o lançamento do projétil
+
+        while (proj != null && _player != null && elapsedTime < lifetime)
+        {
+            // Verificar se o projétil ainda está ativo
+            if (proj.activeSelf)
+            {
+                Vector3 direction = (_player.transform.position - proj.transform.position).normalized;
+                Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.velocity = direction * projectileSpeed;
+                }
+            }
+
+            elapsedTime += Time.deltaTime;  // Incrementar o tempo decorrido
+            yield return null;  // Espera pelo próximo frame
+        }
+
+        // Se o projétil ainda estiver ativo após o tempo especificado, desativá-lo
+        if (proj != null && proj.activeSelf && elapsedTime >= lifetime)
+        {
+            ResetProjectile();  // Chamada para a função que desativa o projétil
+        }
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -112,18 +141,21 @@ public class EnemyStatic : EnemyController
         if (enemyHealth <= 0)
         {
             animator.SetBool("isDead", true);
-            Destroy(gameObject, 1f);  // Destrói o inimigo quando a vida chegar a zero
+            enemyAnimEvents.DestroyGameObject();
         }
     }
 
     private void ResetProjectile()
     {
-        // Para o movimento do projétil e desativa-o para reutilização
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (projectile != null)
         {
-            rb.velocity = Vector2.zero;
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;  // Parar o movimento do projétil
+            }
+            projectile.SetActive(false);  // Desativar o projétil
         }
-        projectile.SetActive(false);
     }
+
 }
