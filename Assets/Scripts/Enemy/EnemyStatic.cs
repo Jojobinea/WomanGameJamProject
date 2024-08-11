@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyStatic : EnemyController
 {
-    private GameObject _player;
     public float attackInterval = 2.0f;
     public float projectileSpeed = 5.0f;
     private GameObject projectile;
 
     [SerializeField] private Animator animator; // GameObject que representa o projétil
+    [SerializeField] private Transform _spriteTransform;
 
     // Adiciona uma variável para armazenar a vida do inimigo
     public int enemyHealth = 10;  // Vida inicial do inimigo
@@ -18,6 +18,7 @@ public class EnemyStatic : EnemyController
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         projectile = transform.Find("projetil").gameObject;
+        _spriteTransform.parent = null;
 
         if (projectile == null)
         {

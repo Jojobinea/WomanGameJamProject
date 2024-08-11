@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     // References
-    private GameObject _player;
+    protected GameObject _player;
     private NavMeshAgent _agent;
 
 

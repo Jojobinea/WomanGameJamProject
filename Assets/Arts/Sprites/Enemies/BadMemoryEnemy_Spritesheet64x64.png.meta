@@ -113,10 +113,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_2
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 52
-        width: 54
-        height: 35
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_3
       rect:
         serializedVersion: 2
-        x: 197
+        x: 192
         y: 52
-        width: 54
-        height: 36
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_5
       rect:
         serializedVersion: 2
-        x: 325
+        x: 320
         y: 52
-        width: 54
-        height: 38
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_6
       rect:
         serializedVersion: 2
-        x: 69
+        x: 384
         y: 52
-        width: 54
-        height: 35
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_7
       rect:
         serializedVersion: 2
-        x: 261
+        x: 448
         y: 52
-        width: 54
-        height: 37
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_8
       rect:
         serializedVersion: 2
-        x: 389
-        y: 52
-        width: 54
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_10
       rect:
         serializedVersion: 2
-        x: 5
-        y: 52
-        width: 54
-        height: 35
+        x: 128
+        y: 0
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_11
       rect:
         serializedVersion: 2
-        x: 453
-        y: 52
-        width: 54
-        height: 35
+        x: 192
+        y: 0
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: BadMemoryEnemy_Spritesheet64x64_12
       rect:
         serializedVersion: 2
-        x: 198
-        y: 6
-        width: 50
-        height: 35
+        x: 256
+        y: 0
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,139 +299,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BadMemoryEnemy_Spritesheet64x64_16
-      rect:
-        serializedVersion: 2
-        x: 392
-        y: 11
-        width: 50
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 351dbd5778b6cf348a04ea7b3e07f1c5
-      internalID: 1424311835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BadMemoryEnemy_Spritesheet64x64_19
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 12
-        width: 52
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3bdd62bba7689a40ad3f6ce66e853ca
-      internalID: 685238642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BadMemoryEnemy_Spritesheet64x64_20
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 12
-        width: 52
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76127e066314bdf4aa14b4ea6a77984c
-      internalID: -1857115903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BadMemoryEnemy_Spritesheet64x64_21
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 12
-        width: 52
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac4e9362da1f958439fb3e2f9d3951be
-      internalID: -7142231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BadMemoryEnemy_Spritesheet64x64_23
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 5
-        width: 48
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ee4d854fe44423468b868127c7b2648
-      internalID: -1791273336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BadMemoryEnemy_Spritesheet64x64_25
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 6
-        width: 50
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 268ff271a73c4f4478ac27b3476825c7
-      internalID: 372962479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: BadMemoryEnemy_Spritesheet64x64_0
       rect:
         serializedVersion: 2
-        x: 454
-        y: 12
-        width: 50
-        height: 35
+        x: 0
+        y: 52
+        width: 64
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,6 +315,132 @@ TextureImporter:
       bones: []
       spriteID: ec0553bcf9d19c04cb6f3adf29ce584d
       internalID: -925636921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadMemoryEnemy_Spritesheet64x64_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 52
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643bc184601440e4f981fb757fea88f4
+      internalID: -1077143759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadMemoryEnemy_Spritesheet64x64_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 52
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5c1ec65cf51554d9affe8f56e7c107
+      internalID: -735297666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadMemoryEnemy_Spritesheet64x64_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088f109fffd956f4c80ef5a0e73ebed3
+      internalID: 700609808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadMemoryEnemy_Spritesheet64x64_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aadfe99f03bcf7e4780d15f5a7e64cb6
+      internalID: 1087079958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadMemoryEnemy_Spritesheet64x64_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd203b59e03306a4288c8631451c3015
+      internalID: -427685777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadMemoryEnemy_Spritesheet64x64_15
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6e9741e5216fc449ee83d6237ea338
+      internalID: 543600038
       vertices: []
       indices: 
       edges: []
@@ -464,31 +464,8 @@ TextureImporter:
       BadMemoryEnemy_Spritesheet64x64_13: 1087079958
       BadMemoryEnemy_Spritesheet64x64_14: -427685777
       BadMemoryEnemy_Spritesheet64x64_15: 543600038
-      BadMemoryEnemy_Spritesheet64x64_16: 1424311835
-      BadMemoryEnemy_Spritesheet64x64_17: 1199995216
-      BadMemoryEnemy_Spritesheet64x64_18: 364768645
-      BadMemoryEnemy_Spritesheet64x64_19: 685238642
       BadMemoryEnemy_Spritesheet64x64_2: 976539841
-      BadMemoryEnemy_Spritesheet64x64_20: -1857115903
-      BadMemoryEnemy_Spritesheet64x64_21: -7142231
-      BadMemoryEnemy_Spritesheet64x64_22: 1460378449
-      BadMemoryEnemy_Spritesheet64x64_23: -1791273336
-      BadMemoryEnemy_Spritesheet64x64_24: 1050599331
-      BadMemoryEnemy_Spritesheet64x64_25: 372962479
-      BadMemoryEnemy_Spritesheet64x64_26: 1764253203
-      BadMemoryEnemy_Spritesheet64x64_27: -695377845
-      BadMemoryEnemy_Spritesheet64x64_28: -516116559
-      BadMemoryEnemy_Spritesheet64x64_29: 1225898364
       BadMemoryEnemy_Spritesheet64x64_3: -1247074415
-      BadMemoryEnemy_Spritesheet64x64_30: -1245198691
-      BadMemoryEnemy_Spritesheet64x64_31: 434706676
-      BadMemoryEnemy_Spritesheet64x64_32: -1185840017
-      BadMemoryEnemy_Spritesheet64x64_33: -1264273273
-      BadMemoryEnemy_Spritesheet64x64_34: -687397373
-      BadMemoryEnemy_Spritesheet64x64_35: -1746846876
-      BadMemoryEnemy_Spritesheet64x64_36: -704452737
-      BadMemoryEnemy_Spritesheet64x64_37: -1184811404
-      BadMemoryEnemy_Spritesheet64x64_38: -1441464501
       BadMemoryEnemy_Spritesheet64x64_4: -735297666
       BadMemoryEnemy_Spritesheet64x64_5: -1302962701
       BadMemoryEnemy_Spritesheet64x64_6: -2014852316
