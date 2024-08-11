@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // References
+    // Referências
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private PlayerInputs _playerInputs;
     [SerializeField] private EquippedProjectileStruct _equippedProjectile;
     [SerializeField] private LineRenderer _lineRenderer;
 
-    // Variables
+    // Variáveis
     [SerializeField] private float _speed;
+    [SerializeField] private int _life = 10;  // Vida inicial do jogador
     private bool _canCastMagic;
     private bool _isCastingLighting;
 
@@ -34,10 +35,36 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Movement related
+        // Movimento
         Vector2 inputVector = _playerInputs.GetMovementVectorValue();
-
         _rb.velocity = inputVector * _speed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemies"))
+        {
+            TakeDamage(1);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("ProjectilEnemy"))
+        {
+            TakeDamage(1);
+        }
+    }
+
+    private void TakeDamage(int damage)
+    {
+        _life -= damage;
+        Debug.Log("Vida restante do jogador: " + _life);
+
+        if (_life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void ChangePower(int identifier)
@@ -59,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void CastFireBall()
     {
-        if(!_canCastMagic) return;
+        if (!_canCastMagic) return;
 
         Debug.Log("cast fire");
         GameObject magic = Instantiate(_equippedProjectile.magicList[0], transform.position, Quaternion.identity);

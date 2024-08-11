@@ -6,16 +6,22 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     // References
-    private GameObject _player;
+    protected GameObject _player;
     private NavMeshAgent _agent;
+
+
+    protected void InitializeAgent()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+    }
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
 
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+        InitializeAgent();
     }
 
     private void Update()
