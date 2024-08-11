@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EquippedMagicDetail", menuName ="ScriptableObjects/EquipedMagicDetail")]
 public class EquippedProjectileStruct : ScriptableObject
 {
-    public MagicProjectileDetail equippedProjectile;
-
-    public MagicProjectileDetail[] magicList;
+    public int equippedMagic;
+    public GameObject[] magicList;
 }

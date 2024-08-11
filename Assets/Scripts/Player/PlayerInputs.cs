@@ -28,10 +28,6 @@ public class PlayerInputs : MonoBehaviour
         {
             EventManager.OnPlayerChangeMagicTrigger(1);
         }
-        else if(_playerInputActions.Player.SelectLightingBolt.IsPressed())
-        {
-            EventManager.OnPlayerChangeMagicTrigger(2);
-        }
     }
 
     public Vector2 GetMovementVectorValue()
