@@ -17,24 +17,27 @@ public class EnemyStatic : EnemyController
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-
-        // Buscar o projétil diretamente no prefab principal
         projectile = transform.Find("projetil").gameObject;
 
-        // Certificar-se de que o projétil está desativado até ser lançado
-        if (projectile != null)
-        {
-            projectile.SetActive(false);
-        }
-        else
+        if (projectile == null)
         {
             Debug.LogError("Projétil 'Circle' não encontrado diretamente no prefab");
         }
+        else
+        {
+            projectile.SetActive(false);
+        }
 
-        animator = GetComponent<Animator>();
+        // Certifique-se de que o Animator foi atribuído através do inspector
+        if (animator == null)
+        {
+            Debug.LogError("Animator não foi atribuído ao prefab_Enemy_Shadow");
+            this.enabled = false; // Desativa o script para prevenir erros
+        }
 
         StartCoroutine(AttackRoutine());
     }
+
 
     private void Update()
     {
