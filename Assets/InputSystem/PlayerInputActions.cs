@@ -35,6 +35,42 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc9ca57c-3a06-48fc-b7d6-9680cc5ff67c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectFireball"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9b52dfd-81bd-4a5e-b329-57ac24e53762"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectIceShard"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e5f15ad-53dd-4cb3-9341-d772b555bcc5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectLightingBolt"",
+                    ""type"": ""Button"",
+                    ""id"": ""6321094c-b136-4d09-bd1d-d179b967e685"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +128,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fae63c25-effe-42c6-bff0-70d95cd1974d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f21f621-e899-4f07-8600-ce7936f86fe3"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectFireball"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6460f319-9d2c-41a8-bb55-a657eb2ab679"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectIceShard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6885b93a-e4fa-4c7c-a7a8-01b032e53cca"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectLightingBolt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +181,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_SelectFireball = m_Player.FindAction("SelectFireball", throwIfNotFound: true);
+        m_Player_SelectIceShard = m_Player.FindAction("SelectIceShard", throwIfNotFound: true);
+        m_Player_SelectLightingBolt = m_Player.FindAction("SelectLightingBolt", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +247,19 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_SelectFireball;
+    private readonly InputAction m_Player_SelectIceShard;
+    private readonly InputAction m_Player_SelectLightingBolt;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @SelectFireball => m_Wrapper.m_Player_SelectFireball;
+        public InputAction @SelectIceShard => m_Wrapper.m_Player_SelectIceShard;
+        public InputAction @SelectLightingBolt => m_Wrapper.m_Player_SelectLightingBolt;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +272,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @SelectFireball.started += instance.OnSelectFireball;
+            @SelectFireball.performed += instance.OnSelectFireball;
+            @SelectFireball.canceled += instance.OnSelectFireball;
+            @SelectIceShard.started += instance.OnSelectIceShard;
+            @SelectIceShard.performed += instance.OnSelectIceShard;
+            @SelectIceShard.canceled += instance.OnSelectIceShard;
+            @SelectLightingBolt.started += instance.OnSelectLightingBolt;
+            @SelectLightingBolt.performed += instance.OnSelectLightingBolt;
+            @SelectLightingBolt.canceled += instance.OnSelectLightingBolt;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -187,6 +291,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @SelectFireball.started -= instance.OnSelectFireball;
+            @SelectFireball.performed -= instance.OnSelectFireball;
+            @SelectFireball.canceled -= instance.OnSelectFireball;
+            @SelectIceShard.started -= instance.OnSelectIceShard;
+            @SelectIceShard.performed -= instance.OnSelectIceShard;
+            @SelectIceShard.canceled -= instance.OnSelectIceShard;
+            @SelectLightingBolt.started -= instance.OnSelectLightingBolt;
+            @SelectLightingBolt.performed -= instance.OnSelectLightingBolt;
+            @SelectLightingBolt.canceled -= instance.OnSelectLightingBolt;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -207,5 +323,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnSelectFireball(InputAction.CallbackContext context);
+        void OnSelectIceShard(InputAction.CallbackContext context);
+        void OnSelectLightingBolt(InputAction.CallbackContext context);
     }
 }
