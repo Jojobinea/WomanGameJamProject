@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6536518362461297487}
   - component: {fileID: 2814655299792816769}
   - component: {fileID: 7208316441992367761}
-  - component: {fileID: 7333170660017062490}
+  - component: {fileID: 7129124190240138044}
   m_Layer: 0
-  m_Name: prefab_PlayerProjectile
+  m_Name: prefab_FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7333170660017062490
+--- !u!114 &7129124190240138044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,11 +106,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1223257131594507830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33995a89bddfd69409f8742bfcbf4203, type: 3}
+  m_Script: {fileID: 11500000, guid: dbfec9f80d447eb4ea0e5f7704df085a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1419585713577671643}
   _rb: {fileID: 2814655299792816769}
+  _baseDamage: 0
+  _currentDamage: 0
+  _speed: 7
+  coolDownTimer: 1
+  _fireballExplosion: {fileID: 5295061689050046274, guid: d46abd62e92c31a44a8db4de0dd22c30, type: 3}
 --- !u!1 &6956875469115378772
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +190,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
