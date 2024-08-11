@@ -9,13 +9,19 @@ public class EnemyController : MonoBehaviour
     private GameObject _player;
     private NavMeshAgent _agent;
 
+
+    protected void InitializeAgent()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+    }
+
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
 
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+        InitializeAgent();
     }
 
     private void Update()
