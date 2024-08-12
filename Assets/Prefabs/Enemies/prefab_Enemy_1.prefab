@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3390324563292676163}
   - component: {fileID: 5603115003991170412}
+  - component: {fileID: 8425071581436097150}
+  - component: {fileID: 7137149389529434346}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -73,17 +75,50 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1316541478, guid: 43f430641c62ce84cb3d6a2ddb46db87, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9230769, y: 0.95384616}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8425071581436097150
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868608258480782433}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 782a355ec39f34a43b989d974b935177, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7137149389529434346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868608258480782433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddf7d58e09c1f04594eeb64f24fca8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6893281339840974826
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +134,6 @@ GameObject:
   m_Layer: 0
   m_Name: prefab_Enemy_1
   m_TagString: Enemies
-  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,3 +236,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 698827b36a2d3224f9571d6d4ffbe715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 1
+  animator: {fileID: 8425071581436097150}

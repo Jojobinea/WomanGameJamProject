@@ -22,6 +22,8 @@ public class Projectile : MonoBehaviour
         Vector2 direction = (mousePos - _rb.position).normalized;
 
         _rb.velocity = direction * _speed;
+
+        Destroy(gameObject, 5f);
     }
 
     public float GetProjectileSpeed()

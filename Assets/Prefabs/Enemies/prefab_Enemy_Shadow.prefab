@@ -218,10 +218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8921b890d8f92847b0a802e2bf80b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackInterval: 2
-  projectileSpeed: 5
   enemyHealth: 10
   animator: {fileID: 2445265730287070050}
+  attackInterval: 2
+  projectileSpeed: 5
   _spriteTransform: {fileID: 82344489019352078}
 --- !u!60 &3136506438650818052
 PolygonCollider2D:
