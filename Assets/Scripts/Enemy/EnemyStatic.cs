@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class EnemyStatic : EnemyController
@@ -58,7 +59,7 @@ public class EnemyStatic : EnemyController
             transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         }
 
-        _spriteTransform.transform.rotation = Quaternion.Euler (0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
+        _spriteTransform.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
     }
 
     private IEnumerator AttackRoutine()
@@ -136,6 +137,11 @@ public class EnemyStatic : EnemyController
             }
             projectile.SetActive(false);  // Desativar o projétil
         }
+    }
+
+    protected override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
     }
 
 }

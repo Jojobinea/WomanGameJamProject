@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
     // References
+
+
     protected GameObject _player;
     private NavMeshAgent _agent;
     private bool _playerIsAlive = true;
 
     [SerializeField] protected int enemyHealth = 1;
     [SerializeField] protected Animator animator;
+
 
 
     protected void InitializeAgent()
@@ -32,7 +36,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if(_playerIsAlive)
+        if (_playerIsAlive)
             _agent.SetDestination(_player.transform.position);
         else
             _agent.SetDestination(transform.position);
@@ -41,6 +45,8 @@ public class EnemyController : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.OnPlayerDeathEvent -= DetectPlayerDeath;
+
+
     }
 
     protected virtual void TakeDamage(int damage)
@@ -55,7 +61,7 @@ public class EnemyController : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("ProjetilPlayer"))
@@ -68,9 +74,16 @@ public class EnemyController : MonoBehaviour
             Debug.Log("Colidiu com a parede");
         }
     }
-    
+
     private void DetectPlayerDeath()
     {
         _playerIsAlive = false;
     }
+
+    private void GoToNextScene()
+    {
+        SceneManager.LoadScene("You Win");
+
+    }
+
 }
