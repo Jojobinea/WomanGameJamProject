@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     // References
     protected GameObject _player;
     private NavMeshAgent _agent;
+    private bool _playerIsAlive = true;
 
     [SerializeField] protected int enemyHealth = 1;
     [SerializeField] protected Animator animator;
@@ -22,6 +23,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        EventManager.OnPlayerDeathEvent += DetectPlayerDeath;
+
         _player = GameObject.FindGameObjectWithTag("Player");
 
         InitializeAgent();
@@ -29,7 +32,15 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        _agent.SetDestination(_player.transform.position);
+        if(_playerIsAlive)
+            _agent.SetDestination(_player.transform.position);
+        else
+            _agent.SetDestination(transform.position);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerDeathEvent -= DetectPlayerDeath;
     }
 
     protected virtual void TakeDamage(int damage)
@@ -58,4 +69,8 @@ public class EnemyController : MonoBehaviour
         }
     }
     
+    private void DetectPlayerDeath()
+    {
+        _playerIsAlive = false;
+    }
 }
