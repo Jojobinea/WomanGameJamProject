@@ -188,6 +188,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &400182158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 400182157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &486858626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +258,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &486858627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 486858626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &516727587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +328,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &516727588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 516727587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &531727523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,6 +2964,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203bb12adafac81458872bcd82ffd211, type: 3}
+--- !u!1 &975370670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4370581298791218188, guid: 203bb12adafac81458872bcd82ffd211, type: 3}
+  m_PrefabInstance: {fileID: 975370669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1030272491
 GameObject:
   m_ObjectHideFlags: 0
@@ -10018,6 +10038,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &1043270739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 1043270738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1078054570
 GameObject:
   m_ObjectHideFlags: 0
@@ -10129,6 +10154,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &1289085254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 1289085253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1354901336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10194,6 +10224,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &1354901337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 1354901336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1489461556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10259,6 +10294,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+--- !u!1 &1489461557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893281339840974826, guid: 4795973e02f2dc941a7167bdf51377ec, type: 3}
+  m_PrefabInstance: {fileID: 1489461556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1593077919
 GameObject:
   m_ObjectHideFlags: 0
@@ -10477,6 +10517,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pausePanel: {fileID: 1929969502}
   _settingsPanel: {fileID: 2020392071}
+  enemyPrefabs:
+  - {fileID: 975370670}
+  - {fileID: 1354901337}
+  - {fileID: 486858627}
+  - {fileID: 1489461557}
+  - {fileID: 516727588}
+  - {fileID: 1289085254}
+  - {fileID: 400182158}
+  - {fileID: 1043270739}
 --- !u!1 &1770069496
 GameObject:
   m_ObjectHideFlags: 0

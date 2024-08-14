@@ -30,11 +30,10 @@ public class EnemyStatic : EnemyController
             projectile.SetActive(false);
         }
 
-        // Certifique-se de que o Animator foi atribuído através do inspector
         if (animator == null)
         {
             Debug.LogError("Animator não foi atribuído ao prefab_Enemy_Shadow");
-            this.enabled = false; // Desativa o script para prevenir erros
+            this.enabled = false;
         }
 
         enemyAnimEvents = GetComponent<EnemyAnimEvents>();
@@ -48,7 +47,7 @@ public class EnemyStatic : EnemyController
 
         if (_player != null)
         {
-            // Calcula a direção do jogador a partir da posição do inimigo
+
             Vector3 direction = _player.transform.position - transform.position;
 
             // Calcula o ângulo necessário para olhar para o jogador

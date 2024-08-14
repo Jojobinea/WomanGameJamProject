@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _settingsPanel;
+
+    [SerializeField] private GameObject[] enemyPrefabs;
+
     private bool _gameIsPaused;
 
     private void Start()
@@ -25,13 +30,28 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!_gameIsPaused)
+            if (!_gameIsPaused)
                 EventManager.OnGamePauseTrigger();
-            else if(_gameIsPaused)
+            else if (_gameIsPaused)
                 EventManager.OnResumeGameTrigger();
         }
+
+        if (AreAllEnemiesDefeated())
+        {
+            LoadVictoryScene();
+        }
+    }
+
+    private bool AreAllEnemiesDefeated()
+    {
+        return GameObject.FindGameObjectsWithTag("Enemies").Length == 0;
+    }
+
+    private void LoadVictoryScene()
+    {
+        SceneManager.LoadScene("You Win");
     }
 
     private void PauseGame()
@@ -54,7 +74,7 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-    
+
     private void RestartTime()
     {
         Time.timeScale = 1;

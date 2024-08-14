@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
 {
     // References
 
-
     protected GameObject _player;
     private NavMeshAgent _agent;
     private bool _playerIsAlive = true;
@@ -67,7 +66,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("ProjetilPlayer"))
         {
             Debug.Log("Colidiu com o jogador");
-            TakeDamage(1);  // Reduz a vida do inimigo em 1
+            TakeDamage(1);
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
@@ -78,12 +77,6 @@ public class EnemyController : MonoBehaviour
     private void DetectPlayerDeath()
     {
         _playerIsAlive = false;
-    }
-
-    private void GoToNextScene()
-    {
-        SceneManager.LoadScene("You Win");
-
     }
 
 }
