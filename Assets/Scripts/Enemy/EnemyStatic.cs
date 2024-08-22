@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class EnemyStatic : EnemyController
@@ -29,11 +30,10 @@ public class EnemyStatic : EnemyController
             projectile.SetActive(false);
         }
 
-        // Certifique-se de que o Animator foi atribuído através do inspector
         if (animator == null)
         {
             Debug.LogError("Animator não foi atribuído ao prefab_Enemy_Shadow");
-            this.enabled = false; // Desativa o script para prevenir erros
+            this.enabled = false;
         }
 
         enemyAnimEvents = GetComponent<EnemyAnimEvents>();
@@ -47,7 +47,7 @@ public class EnemyStatic : EnemyController
 
         if (_player != null)
         {
-            // Calcula a direção do jogador a partir da posição do inimigo
+
             Vector3 direction = _player.transform.position - transform.position;
 
             // Calcula o ângulo necessário para olhar para o jogador
@@ -58,7 +58,7 @@ public class EnemyStatic : EnemyController
             transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         }
 
-        _spriteTransform.transform.rotation = Quaternion.Euler (0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
+        _spriteTransform.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
     }
 
     private IEnumerator AttackRoutine()
@@ -136,6 +136,11 @@ public class EnemyStatic : EnemyController
             }
             projectile.SetActive(false);  // Desativar o projétil
         }
+    }
+
+    protected override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
     }
 
 }

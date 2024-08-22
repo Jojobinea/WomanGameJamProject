@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             EventManager.OnPlayerDeathTrigger();
             Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -94,11 +96,11 @@ public class PlayerController : MonoBehaviour
 
     private void CastMagic()
     {
-        if(_equippedProjectile.equippedMagic == 0)
+        if (_equippedProjectile.equippedMagic == 0)
         {
             CastFireBall();
         }
-        else if(_equippedProjectile.equippedMagic == 1)
+        else if (_equippedProjectile.equippedMagic == 1)
         {
             CastIceShard();
         }
@@ -107,11 +109,11 @@ public class PlayerController : MonoBehaviour
     private void CastFireBall()
     {
         if (!_canCastMagic) return;
-        if(_currentMana <= 0) return;
+        if (_currentMana <= 0) return;
 
         Debug.Log("cast fire");
         GameObject magic = Instantiate(_equippedProjectile.magicList[0], transform.position, Quaternion.identity);
-        _currentMana -=1;
+        _currentMana -= 1;
         _manaSlider.value = _currentMana;
         StartCoroutine(MagicCoolDown(magic.GetComponent<Projectile>().coolDownTimer));
     }
@@ -119,7 +121,7 @@ public class PlayerController : MonoBehaviour
     private void CastIceShard()
     {
         if (!_canCastMagic) return;
-        if(_currentMana <= 0) return;
+        if (_currentMana <= 0) return;
 
         Debug.Log("cast ice");
 
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = newDirection * magic.GetComponent<Projectile>().GetProjectileSpeed();
         }
 
-        _currentMana -=1;
+        _currentMana -= 1;
         _manaSlider.value = _currentMana;
         StartCoroutine(MagicCoolDown(_equippedProjectile.magicList[1].GetComponent<Projectile>().coolDownTimer));
     }
@@ -152,7 +154,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ManaRestoration()
     {
         yield return new WaitForSeconds(_manaRegenTime);
-        if(_currentMana < _maxMana) _currentMana += 1;
+        if (_currentMana < _maxMana) _currentMana += 1;
         _manaSlider.value = _currentMana;
         StartCoroutine(ManaRestoration());
     }
